@@ -1,0 +1,107 @@
+{
+// run_query snippets
+
+	// list (rql)
+	"LIST": {
+		"prefix": "rql",
+		"body": [
+			"public function ${1}_list(){",
+			"\t\\$query = \"",
+			"\t\tSELECT", 
+			"\t\t\t*",	
+			"\t\tFROM", 
+			"\t\t\ttest_table",
+			"\t\";",
+			"\t//\\$params = array('i',&\\$id);",
+			"\t\\$result = \\$this->run_query(\\$query, 'list', \\$params);",
+			"\treturn \\$result;",
+			"}"
+		],
+		"description": "SQL list function utilizing run_query()"
+	},
+
+	// info (rqi)
+	"INFO": {
+		"prefix": "rqi",
+		"body": [
+			"public function ${1}_info(\\$id){",
+			"\t\\$query = \"",
+			"\t\tSELECT", 
+			"\t\t\t*",	
+			"\t\tFROM", 
+			"\t\t\ttest_table",
+			"\t\tWHERE",
+			"\t\t\tid = ?",
+			"\t\";",
+			"\t\\$params = array('i',&\\$id);",
+			"\t\\$result = \\$this->run_query(\\$query, 'info', \\$params);",
+			"\treturn \\$result;",
+			"}"
+		],
+		"description": "SQL info function utilizing run_query()"
+	},
+
+	// insert (rqin)
+	"INSERT": {
+		"prefix": "rqin",
+		"body": [
+			"public function ${1}_insert(\\$1,\\$2,\\$3){",
+			"\t\\$query = \"",
+			"\t\tINSERT INTO", 
+			"\t\t\ttest_table",	
+			"\t\t(", 
+			"\t\t\ttest1,",
+			"\t\t\ttest2,",
+			"\t\t\ttest3",
+			"\t\t)",
+			"\t\tVALUES",
+			"\t\t\t(?,?,?)",
+			"\t\";",
+			"\t\\$params = array('isi',&\\$1,&\\$2,&\\$3);",
+			"\t\\$result = \\$this->run_query(\\$query, 'insert', \\$params);",
+			"\treturn \\$result;",
+			"}"
+		],
+		"description": "SQL insert function utilizing run_query()"
+	},
+
+	// delete (rqd)
+	"DELETE": {
+		"prefix": "rqd",
+		"body": [
+			"public function ${1}_delete(\\$id){",
+			"\t\\$query = \"",
+			"\t\tDELETE FROM", 
+			"\t\t\ttest_table",
+			"\t\tWHERE",
+			"\t\t\tid = ?",
+			"\t\";",
+			"\t\\$params = array('i',&\\$id);",
+			"\t\\$result = \\$this->run_query(\\$query, 'delete', \\$params);",
+			"\treturn \\$result;",
+			"}"
+		],
+		"description": "SQL delete function utilizing run_query()"
+	},
+
+	// update (rqu)
+	"UPDATE": {
+		"prefix": "rqu",
+		"body": [
+			"public function ${1}_update(\\$1,\\$2,\\$3,\\$id){",
+			"\t\\$query = \"",
+			"\t\tUPDATE test_table SET", 
+			"\t\t\ttest1 = ?,",
+			"\t\t\ttest2 = ?,",
+			"\t\t\ttest3 = ?",
+			"\t\tWHERE",
+			"\t\t\tid = ?",
+			"\t\";",
+			"\t\\$params = array('sssi',&\\$1,&\\$2,&\\$3,&\\$id);",
+			"\t\\$result = \\$this->run_query(\\$query, 'update', \\$params);",
+			"\treturn \\$result;",
+			"}"
+		],
+		"description": "SQL update function utilizing run_query()"
+	},
+}
